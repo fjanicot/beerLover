@@ -1,6 +1,5 @@
 <?php
-require_once "../src/Controller/MainController.php";
-require_once "../src/Service/ViewService.php";
+require_once "../vendor/autoload.php";
 
 use App\Controller\MainController;
 
