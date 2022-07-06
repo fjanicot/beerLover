@@ -7,14 +7,17 @@ use App\Controller\MainController;
 
 class Router
 {
+    const CONFIG_PATH = '../config/routes.yaml';
+    private array $routes;
+
     public function __construct()
     {
-        $routes = yaml_parse_file('../config/routes.yaml');
-        var_dump($routes);die();
+        $this->routes = yaml_parse_file(self::CONFIG_PATH);
     }
 
     public function match(string $uri): ?array
     {
+        var_dump($this->routes);
         if($uri === '/') {
             return [
                 'controller' => MainController::class, // App\Controller\MainController

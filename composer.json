@@ -12,5 +12,7 @@
             "email": "hello@rdelbaere.fr"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-yaml": "*"
+    }
 }
