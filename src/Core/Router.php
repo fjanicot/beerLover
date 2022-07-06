@@ -18,7 +18,6 @@ class Router
     public function match(string $uri): ?array
     {
         foreach ($this->routes as $route) {
-            var_dump($route);
             if ($route['uri'] === $uri) {
                 return $route;
             }
