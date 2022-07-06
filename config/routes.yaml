@@ -1,0 +1,14 @@
+mainHome:
+    uri: /
+    controller: App\Controller\MainController
+    method: home
+
+mainAbout:
+    uri: /a-propos
+    controller: App\Controller\MainController
+    method: about
+
+beerList:
+    uri: /bieres
+    controller: App\Controller\BeerController
+    method: list

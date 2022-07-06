@@ -7,6 +7,12 @@ use App\Controller\MainController;
 
 class Router
 {
+    public function __construct()
+    {
+        $routes = yaml_parse_file('../config/routes.yaml');
+        var_dump($routes);die();
+    }
+
     public function match(string $uri): ?array
     {
         if($uri === '/') {
