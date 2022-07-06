@@ -1,17 +1,9 @@
 <?php
 require_once "../vendor/autoload.php";
 
-use App\Controller\MainController;
-use App\Core\Router;
+use App\Core\Kernel;
 
-$uri = $_SERVER['PATH_INFO'] ?? '/';
+$kernel = new Kernel();
+$kernel->handle();
 
-$controller = new MainController();
-$router = new Router();
-$method = $router->match($uri);
 
-if($method){
-    $controller->$method();
-}else{
-    http_response_code(404);
-}
