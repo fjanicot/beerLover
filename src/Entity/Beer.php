@@ -3,13 +3,15 @@
 namespace App\Entity;
 
 use App\Core\Orm\EntityInterface;
-use App\Repository\StyleRepository;
+use App\Repository\BeerRepository;
 
-class Style implements EntityInterface
+class Beer implements EntityInterface
 {
     private int $id;
     private string $name;
     private string $slug;
+    private string $picture;
+    private Style $style;
 
     public function getId(): int
     {
@@ -41,8 +43,28 @@ class Style implements EntityInterface
         $this->slug = $slug;
     }
 
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    public function getStyle(): Style
+    {
+        return $this->style;
+    }
+
+    public function setStyle(Style $style): void
+    {
+        $this->style = $style;
+    }
+
     public static function getRepository(): string
     {
-        return StyleRepository::class;
+        return BeerRepository::class;
     }
 }

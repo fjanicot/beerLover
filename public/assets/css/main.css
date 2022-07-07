@@ -150,3 +150,40 @@ footer>p a {
 footer>p a:hover {
     color: var(--color-orange);
 }
+
+/* ---- CARD ----*/
+.card-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.card{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.card-beer {
+    padding: 20px;
+}
+
+.card-beer h3 {
+    text-align: center;
+}
+
+.card-beer img {
+    width: 200px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    display: block;
+    margin: 20px auto;
+}
+
+.card-beer p {
+    color: var(--color-orange);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: right;
+}

@@ -3,17 +3,17 @@
 namespace App\Repository;
 
 use App\Core\Orm\AbstractRepository;
-use App\Entity\Brewery;
+use App\Entity\Beer;
 
-class BreweryRepository extends AbstractRepository
+class BeerRepository extends AbstractRepository
 {
     public function getTable(): string
     {
-        return 'brewery';
+        return 'beer';
     }
 
     public function getEntity(): string
     {
-        return Brewery::class;
+        return Beer::class;
     }
 }

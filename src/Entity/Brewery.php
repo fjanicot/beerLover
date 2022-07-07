@@ -2,26 +2,24 @@
 
 namespace App\Entity;
 
-class Brewery
+use App\Core\Orm\EntityInterface;
+use App\Repository\BreweryRepository;
+
+class Brewery implements EntityInterface
 {
     private int $id;
     private string $name;
-    private string $website;
+    private ?string $website;
     private string $country;
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     public function getId(): int
     {
         return $this->id;
     }
 
-    public function setName(string $name): void
+    public function setId(int $id): void
     {
-        $this->name = $name;
+        $this->id = $id;
     }
 
     public function getName(): string
@@ -29,14 +27,24 @@ class Brewery
         return $this->name;
     }
 
-    public function setWebsite(string $website): void
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): void
     {
         $this->website = $website;
     }
 
-    public function getWebsite(): string
+    public function getCountry(): string
     {
-        return $this->website;
+        return $this->country;
     }
 
     public function setCountry(string $country): void
@@ -44,8 +52,8 @@ class Brewery
         $this->country = $country;
     }
 
-    public function getCountry(): string
+    public static function getRepository(): string
     {
-        return $this->country;
+        return BreweryRepository::class;
     }
 }

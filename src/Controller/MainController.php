@@ -32,7 +32,7 @@ class MainController extends AbstractController
     public function about(): void
     {
         $this->view->render('main/about', [
-            'title' => 'Faites connaisances avec BeerLover, notre savoir-faire et nos valeurs houblonnées',
+            'title' => 'Faites connaissances avec BeerLover, notre savoir-faire et nos valeurs houblonnées',
         ]);
     }
 }
