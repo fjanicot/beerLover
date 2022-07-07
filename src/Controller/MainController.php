@@ -2,22 +2,36 @@
 
 namespace App\Controller;
 
+use App\Core\Controller\AbstractController;
 use App\Core\ViewManager;
+use App\Repository\StyleRepository;
+use App\Repository\BreweryRepository;
 
-class MainController
+class MainController extends AbstractController
 {
+    public function __construct(protected ViewManager $view, private StyleRepository $styleRepository, private BreweryRepository $breweryRepository)
+    {
+        parent::__construct($this->view);
+    }
+
     public function home(): void
     {
-        $view = new ViewManager();
-        $view->render('main/home', [
+        $styles = $this->styleRepository->findAll();
+        $breweries = $this->breweryRepository->findAll();
+
+        $this->view->render('main/home', [
             'title' => 'BeerLover, votre cave à bière numérique',
-        ]);
+        ],
+        [
+            'styles'=> $styles,
+            'breweries'=> $breweries,
+        ],
+        );
     }
 
     public function about(): void
     {
-        $view = new ViewManager();
-        $view->render('main/about', [
+        $this->view->render('main/about', [
             'title' => 'Faites connaisances avec BeerLover, notre savoir-faire et nos valeurs houblonnées',
         ]);
     }

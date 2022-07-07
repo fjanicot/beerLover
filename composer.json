@@ -13,6 +13,8 @@
         }
     ],
     "require": {
-        "ext-yaml": "*"
+        "ext-yaml": "*",
+        "php-di/php-di": "^6.4",
+        "ext-pdo": "*"
     }
 }

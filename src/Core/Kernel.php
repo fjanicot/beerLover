@@ -2,8 +2,18 @@
 
 namespace App\Core;
 
+use App\Core\Router\Router;
+use DI\Container;
+
 class Kernel
 {
+    private Container $container;
+
+    public function __construct()
+    {
+        $this->container = new Container();
+    }
+
     public function handle()
     {
         $uri = $_SERVER['PATH_INFO'] ?? '/';
@@ -11,12 +21,13 @@ class Kernel
         $router = new Router();
         $route = $router->match($uri);
 
-        if($route){
-            $method = $route['method'];
-            
-            $controller = new $route['controller']();
+        if ($route) {
+            $controllerName = $route->getController();
+            $method = $route->getMethod();
+
+            $controller = $this->container->get($controllerName);
             $controller->$method();
-        }else{
+        } else {
             http_response_code(404);
         }
     }
